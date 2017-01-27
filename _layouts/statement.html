@@ -1,0 +1,44 @@
+---
+layout: page
+---
+
+<div class="container">
+<h1> The Trump Lie Logs </h1>
+
+<div class="row padtop">
+  <div class="col-md-6">
+    <h4> {{ page.desc }} </h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2 padtop">
+    {{ page.date | date_to_string }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    ({{ page.statement_status }})
+  </div>
+</div>
+<div class="row padtop">
+  <div class="col-md-6 ">
+    {{ page.truth_status }}
+  </div>
+</div>
+<div class="row padtop">
+  <div class="col-md-6">
+    Citations:
+    {% for cite in page.cite %}
+      <a href="{{ cite.url }}">[{{ forloop.index }}]</a>
+    {% endfor %}
+  </div>
+</div>
+<div class="row padtop">
+  <div class="col-md-3">
+  <h4><a href="/">[Home]</a>
+  </div>
+</div>
+<div class="row padtop"> </div>
+
+</div>
+
