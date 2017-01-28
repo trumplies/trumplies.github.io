@@ -5,3 +5,7 @@
 blockquote {
   font-size: 14px;
 }
+
+.title a {
+  color: #333;
+}
