@@ -50,6 +50,20 @@ layout: page
   <h2> Weird Statements: not obviously false, but don't quite smell right
     (caveat lector)
 </h2>
+  {% assign sorted = ((site.iffy_statements | where:"month","201702") | sort: 'date') | reverse %}
+  <div id="201702_iffy" class="padtop"><h3> February, 2017 ({{ sorted | size }} Entries)</h3></div>
+  {% for statement in sorted %}
+    <div class="row padtop">
+      <div class="col-md-1">
+        {{ statement.date | date_to_string }}
+      </div>
+      <div class="col-md-6">
+        <a href="{{ statement.url }}"><b> {{ statement.desc }} </b></a>
+      </div>
+    </div>
+    {% endfor %}
+  <div class="row padtop"> </div>
+
   {% assign sorted = ((site.iffy_statements | where:"month","201701") | sort: 'date') | reverse %}
   <div id="201701_iffy" class="padtop"><h3> January, 2017 ({{ sorted | size }} Entries)</h3></div>
   {% for statement in sorted %}
@@ -61,25 +75,6 @@ layout: page
         <a href="{{ statement.url }}"><b> {{ statement.desc }} </b></a>
       </div>
     </div>
-    <!--
-      <div class="col-md-1">
-        ({{ statement.statement_status }})
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-1">
-        {{ statement.truth_status }}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-1">
-        Citations:
-        {% for cite in statement.cite %}
-          <a href="{{ cite.url }}">[{{ forloop.index }}]</a>
-        {% endfor %}
-      </div>
-    </div>
-      -->
     {% endfor %}
   <div class="row padtop"> </div>
 </div>
